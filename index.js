@@ -1,11 +1,13 @@
-for (let i = 1; i < 101; i++) {
-    const number = i;
+for (let number = 1; number < 101; number++) {
+    const FizzBuzz = "FizzBuzz";
+    const Buzz = "Buzz";
+    const Fizz = "Fizz";
     if (numberIsFizzBuzz(number)) {
-        console.log("FizzBuzz");
+        console.log(FizzBuzz);
     } else if (numberIsBuzz(number)) {
-        console.log("Buzz");
+        console.log(Buzz);
     } else if (numberIsFizz(number)) {
-        console.log("Fizz");
+        console.log(Fizz);
     } else {
         console.log(number);
     }
@@ -13,25 +15,17 @@ for (let i = 1; i < 101; i++) {
 
 
 function numberIsDivisibleByDivisor(number, divisor) {
-    if (number % divisor === 0) {
-        return true;
-    }
+    return number % divisor == 0;
 }
 
 function numberIsFizzBuzz(number) {
-    if (numberIsDivisibleByDivisor(number, 5) && numberIsDivisibleByDivisor(number, 3)) {
-        return true;
-    }
+    return numberIsDivisibleByDivisor(number, 5) && numberIsDivisibleByDivisor(number, 3);
 }
 
 function numberIsBuzz(number) {
-    if (numberIsDivisibleByDivisor(number, 5)) {
-        return true;
-    }
+    return numberIsDivisibleByDivisor(number, 5)
 }
 
 function numberIsFizz(number) {
-    if (numberIsDivisibleByDivisor(number, 3)) {
-        return true;
-    }
+    return numberIsDivisibleByDivisor(number, 3)
 }
