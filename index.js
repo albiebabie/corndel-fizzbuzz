@@ -5,7 +5,10 @@ for (let number = 1; number < 101; number++) {
     const Bang = "Bang";
     const FizzBang = "FizzBang";
     const BuzzBang = "BuzzBang";
-    if (numberIsBuzzBang(number)) {
+    const Bong = "Bong";
+    if (numberIsBong(number)) {
+        console.log(Bong)
+    } else if (numberIsBuzzBang(number)) {
         console.log(BuzzBang);
     } else if (numberIsFizzBang(number)) {
         console.log(FizzBang);
@@ -48,4 +51,8 @@ function numberIsFizzBang(number) {
 
 function numberIsBuzzBang(number) {
     return (numberIsBang(number) && numberIsBuzz(number));
+}
+
+function numberIsBong(number) {
+    return numberIsDivisible(number, 11);
 }
