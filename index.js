@@ -4,7 +4,10 @@ for (let number = 1; number < 101; number++) {
     const Fizz = "Fizz";
     const Bang = "Bang";
     const FizzBang = "FizzBang";
-    if (numberIsFizzBang(number)) {
+    const BuzzBang = "BuzzBang";
+    if (numberIsBuzzBang(number)) {
+        console.log(BuzzBang);
+    } else if (numberIsFizzBang(number)) {
         console.log(FizzBang);
     } else if (numberIsFizzBuzz(number)) {
         console.log(FizzBuzz);
@@ -42,4 +45,7 @@ function numberIsBang(number) {
 function numberIsFizzBang(number) {
     return (numberIsBang(number) && numberIsFizz(number));
 }
-// If a number is a multiple of 7, print "Bang" instead of the number. For numbers which are multiples of seven and three / five, append Bang to what you'd have printed anyway. (E.g. 3 * 7 = 21: "FizzBang").
+
+function numberIsBuzzBang(number) {
+    return (numberIsBang(number) && numberIsBuzz(number));
+}
