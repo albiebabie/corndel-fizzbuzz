@@ -1,47 +1,51 @@
+const readline = require('readline-sync');
 const Buzz = "Buzz";
 const Fizz = "Fizz";
 const Bang = "Bang";
 const Bong = "Bong";
 const Fezz = "Fezz";
 
+function fizzBuzz(limit) {
 
-for (let number = 1; number < 301; number++) {
-    let message = [];
-    if (numberIsBong(number)) {
-        if (numberIsFezz(number)) {
-            message.push(Fezz);
-        }
-        message.push(Bong);
-    } else {
-        if (numberIsFizz(number)) {
-            message.push(Fizz);
-        }
-        if (numberIsBuzz(number)) {
-            message.push(Buzz);
-        }
-        if (numberIsBang(number)) {
-            message.push(Bang);
-        }
-        if (numberIsFezz(number)) {
-            if (message.length > 0) {
-                let firstLetter = message[0].charAt(0).toUpperCase();
-                if (firstLetter == "B") {
-                    message.unshift(Fezz);
-                }
-            } else {
+    for (let number = 1; number <= limit; number++) {
+        let message = [];
+        if (numberIsBong(number)) {
+            if (numberIsFezz(number)) {
                 message.push(Fezz);
             }
+            message.push(Bong);
+        } else {
+            if (numberIsFizz(number)) {
+                message.push(Fizz);
+            }
+            if (numberIsBuzz(number)) {
+                message.push(Buzz);
+            }
+            if (numberIsBang(number)) {
+                message.push(Bang);
+            }
+            if (numberIsFezz(number)) {
+                if (message.length > 0) {
+                    let firstLetter = message[0].charAt(0).toUpperCase();
+                    if (firstLetter == "B") {
+                        message.unshift(Fezz);
+                    }
+                } else {
+                    message.push(Fezz);
+                }
+            }
+        }
+        if (number % 17 === 0) {
+            message.reverse();
+        }
+        if (message.length == 0) {
+            console.log(number);
+        } else {
+            console.log(message.join(""));
         }
     }
-    if (number % 17 === 0) {
-        message.reverse();
-    }
-    if (message.length == 0) {
-        console.log(number);
-    } else {
-        console.log(message.join(""));
-    }
 }
+
 
 function numberIsDivisible(number, divisor) {
     return number % divisor == 0;
@@ -66,3 +70,9 @@ function numberIsBong(number) {
 function numberIsFezz(number) {
     return numberIsDivisible(number, 13);
 }
+
+
+
+console.log('Please enter a limit for fizzbuzz:');
+const limit = readline.prompt();
+fizzBuzz(limit);
