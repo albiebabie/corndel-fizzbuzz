@@ -1,12 +1,18 @@
 for (let i = 1; i < 101; i++) {
     const number = i;
-    if (number % 5 === 0 && number % 3 === 0) {
+    if (numberIsDivisibleByDivisor(number, 5) && numberIsDivisibleByDivisor(number, 3)) {
         console.log("FizzBuzz");
-    } else if (number % 5 === 0) {
+    } else if (numberIsDivisibleByDivisor(number, 5)) {
         console.log("Buzz");
-    } else if (number % 3 === 0) {
+    } else if (numberIsDivisibleByDivisor(number, 3)) {
         console.log("Fizz");
     } else {
         console.log(number);
+    }
+}
+
+function numberIsDivisibleByDivisor(number, divisor) {
+    if (number % divisor === 0) {
+        return true;
     }
 }
